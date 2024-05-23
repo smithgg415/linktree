@@ -24,11 +24,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="socialnetwork"
         options={{
-          title: 'Explore',
+          title: 'Redes Sociais',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <TabBarIcon name={focused ? 'share-social' : 'share-social-outline'} color={color} />
           ),
         }}
       />
