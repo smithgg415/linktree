@@ -1,11 +1,9 @@
 import React from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { StyleSheet, Image, Platform, TouchableOpacity, Linking, ImageBackground } from 'react-native';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { BlurView } from '@react-native-community/blur';
-import perfilImage from '@/assets/images/programmer.png';
+import perfilImage from '../../assets/images/programmer.png';
 
 export default function TabTwoScreen() {
 
@@ -47,6 +45,9 @@ export default function TabTwoScreen() {
       <ThemedView style={styles.header}>
         <Image style={styles.perfil} source={perfilImage} />
       </ThemedView>
+      <ThemedView>
+        <ThemedText style={{ fontSize: 23, fontWeight: "bold", textAlign: "center", top: -10 }}>Giacomelli Dev's</ThemedText>
+      </ThemedView>
       <ThemedView style={styles.lista}>
         <TouchableOpacity style={styles.button} onPress={() => openLink('https://github.com/smithgg415')}>
           <Ionicons name="logo-github" size={24} color="white" style={styles.icn} />
@@ -68,8 +69,12 @@ export default function TabTwoScreen() {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.button} onPress={() => openEmail('lfgiacomellirodrigues@gmail.com', 'Trabalho D.D.M', 'Olá, Dev Giacomelli!')}>
-          <Ionicons name="send-sharp" size={24} color="white" style={styles.icn} />
+          <Ionicons name="mail" size={24} color="white" style={styles.icn} />
           <ThemedText style={styles.nameSocial}>Email</ThemedText>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => openEmail('lfgiacomellirodrigues@gmail.com', 'Trabalho D.D.M', 'Olá, Dev Giacomelli!')}>
+          <Ionicons name="logo-discord" size={24} color="white" style={styles.icn} />
+          <ThemedText style={styles.nameSocial}>Discord</ThemedText>
         </TouchableOpacity>
       </ThemedView>
     </ThemedView >
@@ -84,7 +89,15 @@ const styles = StyleSheet.create({
     top: 150,
     borderRadius: 15,
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.32,
+    shadowRadius: 3.84,
+    elevation: 20
   },
   header: {
     borderTopEndRadius: 15,
@@ -112,13 +125,14 @@ const styles = StyleSheet.create({
   button: {
     flexDirection: "row",
     width: "90%",
-    height: 30,
+    height: 35,
+    alignItems: "center",
     backgroundColor: "#007bff"
   },
   nameSocial: {
     textAlign: "center",
     fontSize: 20,
-    color: "white"
+    color: "white",
   },
   icn: {
     top: 2,
