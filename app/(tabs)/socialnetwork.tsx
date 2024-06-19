@@ -1,9 +1,10 @@
 import React from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { StyleSheet, Image, Platform, TouchableOpacity, Linking, ImageBackground } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity, Linking, ImageBackground, View } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import perfilImage from '../../assets/images/programmer.png';
+import perfilImage from "../../assets/images/giacomelli.jpg";
+import { styles } from "../styles";
 
 export default function TabTwoScreen() {
 
@@ -43,12 +44,16 @@ export default function TabTwoScreen() {
   return (
     <ThemedView style={styles.container}>
       <ThemedView style={styles.header}>
-        <Image style={styles.perfil} source={perfilImage} />
+        <View style={{ borderRadius: 60, overflow: 'hidden', height: 120, width: 120, top: 40, left: 120 }}>
+          <ImageBackground source={require('../../assets/images/giacomelli.jpg')} style={{ width: '100%', height: '100%' }} blurRadius={10}>
+            <Image style={styles.perfil} source={perfilImage} />
+          </ImageBackground>
+        </View>
       </ThemedView>
       <ThemedView>
-        <ThemedText style={{ fontSize: 23, fontWeight: "bold", textAlign: "center", top: -10 }}>Giacomelli Dev's</ThemedText>
+        <ThemedText style={{ fontSize: 23, fontWeight: "bold", textAlign: "center", top: -10, }}>Giacomelli Dev's</ThemedText>
       </ThemedView>
-      <ThemedView style={styles.lista}>
+      <ThemedView style={styles.list}>
         <TouchableOpacity style={styles.button} onPress={() => openLink('https://github.com/smithgg415')}>
           <Ionicons name="logo-github" size={24} color="white" style={styles.icn} />
           <ThemedText style={styles.nameSocial}>GitHub</ThemedText>
@@ -72,71 +77,7 @@ export default function TabTwoScreen() {
           <Ionicons name="mail" size={24} color="white" style={styles.icn} />
           <ThemedText style={styles.nameSocial}>Email</ThemedText>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => openEmail('lfgiacomellirodrigues@gmail.com', 'Trabalho D.D.M', 'Olá, Dev Giacomelli!')}>
-          <Ionicons name="logo-discord" size={24} color="white" style={styles.icn} />
-          <ThemedText style={styles.nameSocial}>Discord</ThemedText>
-        </TouchableOpacity>
       </ThemedView>
     </ThemedView >
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    width: 350,
-    height: 400,
-    left: 25,
-    top: 150,
-    borderRadius: 15,
-    display: "flex",
-    justifyContent: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.32,
-    shadowRadius: 3.84,
-    elevation: 20
-  },
-  header: {
-    borderTopEndRadius: 15,
-    borderTopStartRadius: 15,
-    top: -80,
-    width: "100%",
-    height: 70,
-    backgroundColor: "#007bff",
-  },
-  perfil: {
-    top: 30,
-    borderWidth: 2,
-    borderColor: "black",
-    left: 130,
-    width: 100,
-    height: 100,
-
-  },
-  lista: {
-    gap: 8,
-    justifyContent: "center",
-    alignItems: "center",
-
-  },
-  button: {
-    flexDirection: "row",
-    width: "90%",
-    height: 35,
-    alignItems: "center",
-    backgroundColor: "#007bff"
-  },
-  nameSocial: {
-    textAlign: "center",
-    fontSize: 20,
-    color: "white",
-  },
-  icn: {
-    top: 2,
-    marginRight: 90,
-    marginLeft: 10
-  }
-});

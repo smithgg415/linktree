@@ -10,11 +10,11 @@ import Animated, {
 import { ThemedText } from '@/components/ThemedText';
 import React from 'react';
 
-export function HelloWave() {
-  const rotationAnimation = useSharedValue(0);
+export function Computer() {
+  const rotationAnimation = useSharedValue(180);
 
   rotationAnimation.value = withRepeat(
-    withSequence(withTiming(25, { duration: 150 }), withTiming(0, { duration: 150 })),
+    withSequence(withTiming(25, { duration: 200 }), withTiming(0, { duration: 200 })),
     4 // Run the animation 4 times
   );
 
@@ -24,7 +24,7 @@ export function HelloWave() {
 
   return (
     <Animated.View style={animatedStyle}>
-      <ThemedText style={styles.text}>👋</ThemedText>
+      <ThemedText style={styles.text}>💻</ThemedText>
     </Animated.View>
   );
 }
